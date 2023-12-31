@@ -1,4 +1,4 @@
-# Eviroment setup
+# Enviroment setup
 
 ## Cross-compile
 
@@ -293,6 +293,11 @@ Source: https://github.com/PhysicsX/QTonRaspberryPi/tree/main/QtJetsonNano5.15.0
 Copy the /usr/local to get the jetson-inference and the cuda files
 ```bash
 rsync -avz sysroot/usr/local/qt5jnano jetson@192.168.1.236:/usr/local
+```
+
+On host, fix missing stddef.h:
+```bash
+sudo apt-get install libclang-common-8-dev
 ```
 
 In Qt project add the path to CUDA. Without this cuda_runtime_api.h file is missing:
